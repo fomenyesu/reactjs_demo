@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>learning reactjs</title>
+    <script src="bower_components/react/react.js"></script>
+    <script src="bower_components/react/react-dom.js"></script>
+    <script src="bower_components/browser.min.js"></script>
+</head>
+<body>
+<div id="app"></div>
+
+
+<script type="text/babel">
+
+    var MessageBox = React.createClass({
+        alertMe:function(){
+//            alert("您点击了我一下...");
+          //  this.state.isVisable = !this.state.isVisable;
+//            var tempState = this.getInitialState();
+//            console.log(tempState);
+            this.state.clickCount = this.state.clickCount+1;
+//            console.log(this.state);
+            this.setState(this.state);
+//            console.log(this.state.isVisable);
+        },
+        getInitialState:function(){
+          return {
+                isVisable:true,
+                clickCount:0,
+                titleMessage:"你好世界（我来自state）"
+            }
+        },
+        render:function(){
+            var styleObj = {
+                display:this.state.isVisable?"block":"none"
+            }
+            return (
+                <div>
+                <h1 style={styleObj} onClick={this.alertMe}>{this.state.titleMessage}...</h1>
+                <div>您一共点击了 {this.state.clickCount}</div>
+                <SubMessage />
+                </div>
+            )
+        }
+    });
+
+    var SubMessage = React.createClass({
+        render:function(){
+            return(
+                    <div>写代码很有意思...</div>
+            )
+        }
+    })
+
+
+
+    ReactDOM.render(<MessageBox />,document.getElementById("app"),function(){
+        console.log("渲染完成啦~");
+    })
+
+</script>
+
+<script type="text/babel">
+    //    ReactDOM.render(
+    //            <h1>hello world</h1>,
+    //            document.getElementById("app")
+    //    )
+</script>
+
+</body>
+</html>

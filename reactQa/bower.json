@@ -1,0 +1,14 @@
+{
+  "name": "reactQa",
+  "description": "",
+  "main": "main.js",
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
